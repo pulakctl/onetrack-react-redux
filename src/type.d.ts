@@ -1,11 +1,11 @@
 type PlayerState = {
     title: string,
-    fileUrl: string
+    fileName: string
 }
 
 type LoadAction = {
     type: string,
-    url: string,
+    fileName: string,
     title: string
 }
 

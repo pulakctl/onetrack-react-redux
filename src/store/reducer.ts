@@ -1,8 +1,8 @@
 import * as actionTypes from "./actionTypes"
 
 const initialState: PlayerState = {
-    title: "",
-    fileUrl: ""
+    title: '',
+    fileName: ''
 }
 
 const reducer = (
@@ -13,7 +13,7 @@ const reducer = (
         case actionTypes.LOAD_FILE:
             return {
                 title: action.title,
-                fileUrl: action.url
+                fileName: action.fileName
             }
     }
 

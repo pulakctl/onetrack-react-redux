@@ -32,7 +32,7 @@ function App() {
           art = URL.createObjectURL(blob)
         }
 
-        dispatch(loadFile(file.name, title, art))
+        dispatch(loadFile(file, title, art))
       })
     },
     [dispatch]

@@ -1,12 +1,12 @@
 type PlayerState = {
     title: string,
     albumArt: string,
-    fileName: string
+    currentFile: File
 }
 
 type LoadAction = {
     type: string,
-    fileName: string,
+    file: File,
     title: string,
     albumArt: string
 }

@@ -1,12 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import { render } from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
+import { createStore, applyMiddleware, Store } from 'redux'
+import { Provider } from 'react-redux'
+import thunk from 'redux-thunk'
+
+import reducer from './store/reducer'
+
+const store: Store<PlayerState, PlayerAction> & {
+    dispatch: DispatchType
+} = createStore(reducer, applyMiddleware(thunk))
+
+render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

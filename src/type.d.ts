@@ -10,3 +10,5 @@ type LoadAction = {
 }
 
 type PlayerAction = LoadAction
+
+type DispatchType = (args: PlayerAction) => PlayerAction

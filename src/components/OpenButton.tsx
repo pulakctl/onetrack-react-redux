@@ -33,7 +33,7 @@ export const OpenButton: FC<Props> = () => {
     
                     art = URL.createObjectURL(blob)
                 }
-    
+
                 dispatch(loadFile(file, title, art))
             })
         },

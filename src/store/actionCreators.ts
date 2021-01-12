@@ -20,3 +20,23 @@ export function togglePlayback() {
         dispatch(action)
     }
 }
+
+export function updateProgress(progress: number) {
+    let action: UpdateProgressAction = {
+        type: actionTypes.UPDATE_PROGRESS,
+        progress: progress
+    }
+    return (dispatch: DispatchType) => {
+        dispatch(action)
+    }
+}
+
+export function updateDuration(duration: number) {
+    let action: UpdateDurationAction = {
+        type: actionTypes.UPDATE_DURATION,
+        duration: duration
+    }
+    return (dispatch: DispatchType) => {
+        dispatch(action)
+    }
+}

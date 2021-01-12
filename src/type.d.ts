@@ -2,7 +2,9 @@ type PlayerState = {
     title: string,
     albumArt: string,
     currentFile: File,
-    playing: boolean
+    playing: boolean,
+    progress: number,
+    duration: number
 }
 
 type LoadAction = {
@@ -16,6 +18,16 @@ type TogglePlaybackAction = {
     type: string
 }
 
-type PlayerAction = LoadAction | TogglePlaybackAction
+type UpdateProgressAction = {
+    type: string,
+    progress: number
+}
+
+type UpdateDurationAction = {
+    type: string,
+    duration: number
+}
+
+type PlayerAction = LoadAction | UpdateProgressAction | UpdateDurationAction | TogglePlaybackAction
 
 type DispatchType = (args: PlayerAction) => PlayerAction

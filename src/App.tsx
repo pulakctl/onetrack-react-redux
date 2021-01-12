@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
-import { useDispatch, useSelector } from 'react-redux'
-import { Dispatch } from 'redux'
-import { loadFile } from './store/actionCreators';
+import { useSelector } from 'react-redux'
 
-import * as mm from 'music-metadata-browser'
-import blank_album_art from './assets/blank_album.svg'
 import Waveform from './components/Waveform'
 import { ToggleButton } from './components/ToggleButton'
+import { OpenButton } from './components/OpenButton'
+import { AlbumArtDisplay } from './components/AlbumArtDisplay'
+import { ProgressDisplay } from './components/ProgressDisplay'
+import { TrackNameDisplay } from './components/TrackNameDisplay'
 
 function App() {
   const albumArt: string = useSelector(
@@ -19,37 +19,22 @@ function App() {
   const playing: boolean = useSelector(
     (state: PlayerState) => state.playing
   )
-
-  const dispatch: Dispatch<any> = useDispatch()
-
-  const onFileSelected = React.useCallback(
-    (event) => {
-      const file = event.target.files[0]
-      mm.parseBlob(file).then((metadata) => {
-        const title = (metadata.common.title) ? metadata.common.title : file.name
-        
-        var art = blank_album_art
-        if (metadata.common.picture) {
-          const blob = new Blob(
-            [metadata.common.picture[0].data.buffer],
-            {
-              type: metadata.common.picture[0].format
-            }
-          )
-
-          art = URL.createObjectURL(blob)
-        }
-
-        dispatch(loadFile(file, title, art))
-      })
-    },
-    [dispatch]
+  const progress: number = useSelector(
+    (state: PlayerState) => state.progress
+  )
+  const duration: number = useSelector(
+    (state: PlayerState) => state.duration
+  )
+  const currentTrack: string = useSelector(
+    (state: PlayerState) => state.title
   )
 
   return (
     <div className="App">
-      <img src={albumArt} style={{ width: 80, height: 80 }} alt="Album art" />
-      <input type="file" onChange={onFileSelected} accept="audio/*"/>
+      <AlbumArtDisplay src={albumArt} />
+      <TrackNameDisplay name={currentTrack} />
+      <ProgressDisplay progress={progress} duration={duration} />
+      <OpenButton />
       <ToggleButton file={currentFile} playing={playing} />
       <Waveform file={currentFile} playing={playing} />
     </div>

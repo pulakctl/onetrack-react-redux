@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import { useDispatch, useSelector } from 'react-redux'
-import { Dispatch } from 'redux'
+import { useSelector } from 'react-redux'
 
 import Waveform from './components/Waveform'
 import { ToggleButton } from './components/ToggleButton'
 import { OpenButton } from './components/OpenButton'
+import { AlbumArtDisplay } from './components/AlbumArtDisplay'
 
 function App() {
   const albumArt: string = useSelector(
@@ -18,11 +18,9 @@ function App() {
     (state: PlayerState) => state.playing
   )
 
-  const dispatch: Dispatch<any> = useDispatch()
-
   return (
     <div className="App">
-      <img src={albumArt} style={{ width: 80, height: 80 }} alt="Album art" />
+      <AlbumArtDisplay src={albumArt} />
       <OpenButton />
       <ToggleButton file={currentFile} playing={playing} />
       <Waveform file={currentFile} playing={playing} />

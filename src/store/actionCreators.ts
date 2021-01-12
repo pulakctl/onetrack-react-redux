@@ -11,3 +11,12 @@ export function loadFile(file: File, title: string, albumArt: string) {
         dispatch(action)
     }
 }
+
+export function togglePlayback() {
+    let action: TogglePlaybackAction = {
+        type: actionTypes.TOGGLE_PLAYBACK
+    }
+    return (dispatch: DispatchType) => {
+        dispatch(action)
+    }
+}

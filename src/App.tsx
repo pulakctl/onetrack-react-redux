@@ -6,7 +6,8 @@ import { loadFile } from './store/actionCreators';
 
 import * as mm from 'music-metadata-browser'
 import blank_album_art from './assets/blank_album.svg'
-import Waveform from './components/Waveform';
+import Waveform from './components/Waveform'
+import { ToggleButton } from './components/ToggleButton'
 
 function App() {
   const albumArt: string = useSelector(
@@ -14,6 +15,9 @@ function App() {
   )
   const currentFile: File = useSelector(
     (state: PlayerState) => state.currentFile
+  )
+  const playing: boolean = useSelector(
+    (state: PlayerState) => state.playing
   )
 
   const dispatch: Dispatch<any> = useDispatch()
@@ -45,8 +49,9 @@ function App() {
   return (
     <div className="App">
       <img src={albumArt} style={{ width: 80, height: 80 }} alt="Album art" />
-      <input type="file" onChange={onFileSelected} accept="audio/*" />
-      <Waveform file={currentFile} />
+      <input type="file" onChange={onFileSelected} accept="audio/*"/>
+      <ToggleButton file={currentFile} playing={playing} />
+      <Waveform file={currentFile} playing={playing} />
     </div>
   );
 }

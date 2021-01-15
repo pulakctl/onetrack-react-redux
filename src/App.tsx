@@ -31,11 +31,19 @@ function App() {
 
   return (
     <div className="App">
-      <AlbumArtDisplay id="AlbumArt" src={albumArt} />
-      <TrackNameDisplay id="TrackName" name={currentTrack} />
-      <ProgressDisplay id="Progress" progress={progress} duration={duration} />
-      <OpenButton id="OpenButton" />
-      <ToggleButton id="ToggleButton" file={currentFile} playing={playing} />
+      <div className="container-outer">
+        <AlbumArtDisplay id="AlbumArt" src={albumArt} />
+        <div className="container-details">
+          <div className="container-trackdetails">
+            <TrackNameDisplay id="TrackName" name={currentTrack} />
+            <ProgressDisplay id="Progress" progress={progress} duration={duration} />
+          </div>
+          <div className="container-trackbuttons">
+          <ToggleButton id="ToggleButton" file={currentFile} playing={playing} />
+            <OpenButton id="OpenButton" />
+          </div>
+        </div>
+      </div>
       <Waveform id="waveform" file={currentFile} playing={playing} />
     </div>
   );

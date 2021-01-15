@@ -89,6 +89,7 @@ export class Background extends Component<Props> {
     }
 
     render() {
+        this.updateDimensions()
         return (
             <canvas id={this.props.id} style={{display: 'none'}}>
             </canvas>

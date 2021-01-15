@@ -26,7 +26,6 @@ export class Background extends Component<Props> {
 
             document.body.style.background = "url(" + canvas.toDataURL() + ")";
         }
-        console.log(this.width + "x" + this.height)
     }
 
     // https://www.niwa.nu/2013/05/math-behind-colorspace-conversions-rgb-hsl/

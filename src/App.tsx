@@ -9,6 +9,8 @@ import { AlbumArtDisplay } from './components/AlbumArtDisplay'
 import { ProgressDisplay } from './components/ProgressDisplay'
 import { TrackNameDisplay } from './components/TrackNameDisplay'
 
+import * as Assets from './Assets'
+
 function App() {
   const albumArt: string = useSelector(
     (state: PlayerState) => state.albumArt
@@ -31,12 +33,30 @@ function App() {
 
   return (
     <div className="App">
-      <AlbumArtDisplay src={albumArt} />
-      <TrackNameDisplay name={currentTrack} />
-      <ProgressDisplay progress={progress} duration={duration} />
-      <OpenButton />
-      <ToggleButton file={currentFile} playing={playing} />
-      <Waveform file={currentFile} playing={playing} />
+      <div className="container-outer">
+        <AlbumArtDisplay id="AlbumArt" src={albumArt} />
+        <div className="container-details">
+          <div className="container-trackdetails">
+            <TrackNameDisplay id="TrackName" name={currentTrack} />
+            <ProgressDisplay id="Progress" progress={progress} duration={duration} />
+          </div>
+          <div className="container-trackbuttons">
+            <ToggleButton
+              className="ActionButton"
+              file={currentFile}
+              playing={playing}
+              playimg={Assets.ICON_PLAY}
+              pauseimg={Assets.ICON_PAUSE}
+            />
+            <OpenButton
+              className="ActionButton"
+              blankimg={Assets.ICON_BLANK_ALBUM}
+              openimg={Assets.ICON_ADD}
+              />
+          </div>
+        </div>
+      </div>
+      <Waveform id="waveform" file={currentFile} playing={playing} />
     </div>
   );
 }

@@ -1,10 +1,10 @@
 import * as actionTypes from "./actionTypes"
-import blank_album_art from "../assets/blank_album.svg"
+import * as Assets from '../Assets'
 
 const initialState: PlayerState = {
     currentFile: new File([], ""),
     title: '',
-    albumArt: blank_album_art,
+    albumArt: Assets.ICON_BLANK_ALBUM,
     playing: true,
     progress: 0.0,
     duration: 0.0

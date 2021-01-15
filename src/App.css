@@ -1,0 +1,81 @@
+html, body, #root {
+    width: 100%;
+    height: 100%;
+}
+
+.App {
+    padding: 0.3in;
+    width: calc(100% - 0.6in);
+    height: calc(100% - 0.6in);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.container-outer {
+    display: flex;
+    flex-direction: row;
+}
+
+#AlbumArt {
+    width: 240px;
+    height: 240px;
+    object-fit: contain;
+}
+
+.container-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0px 16px 0px 16px;
+}
+
+.container-trackdetails {
+    display: flex;
+    flex-direction: column;
+}
+
+#TrackName {
+    margin: 0;
+    font-size: 3em;
+
+    width: max-content;
+    padding: 5px 10px 5px 10px;
+    background-color: black;
+    color: white;
+}
+
+#Progress {
+    margin: 0;
+    font-size: 2em;
+    font-family: monospace;
+    width: max-content;
+    padding: 5px 10px 5px 10px;
+    background-color: silver;
+    color: black;
+}
+
+.container-trackbuttons {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 4px;
+    column-gap: 30px;
+}
+
+.ActionButton {
+    padding: 0px;
+    height: 64px;
+    width: 64px;
+    border-radius: 50%;
+    border: none;
+    align-items: center;
+    box-shadow: 0px 0px 6px 6px rgba(0, 0, 0, 0.25), 0px 0px 6px 2px rgba(0, 0, 0, 0.1);
+}
+.ActionButton:focus {
+    outline: none;
+    background-color: silver;
+}
+.ActionButton:active {
+    box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.25);
+}

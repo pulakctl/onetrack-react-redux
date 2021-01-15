@@ -5,6 +5,7 @@ import WaveSurfer from 'wavesurfer.js'
 import { updateDuration, updateProgress } from '../store/actionCreators'
 
 type Props = {
+    id: string,
     dispatch: Dispatch<any>,
     file: File,
     playing: boolean
@@ -15,7 +16,7 @@ class Waveform extends Component<Props> {
 
     componentDidMount() {
         this.waveform = WaveSurfer.create({
-            container: '#waveform',
+            container: "#" + this.props.id,
             responsive: true,
             cursorWidth: 1,
             barWidth: 2,
@@ -79,7 +80,7 @@ class Waveform extends Component<Props> {
 
     render() {
         return (
-            <div id="waveform">
+            <div id={this.props.id}>
             </div>
         )
     }

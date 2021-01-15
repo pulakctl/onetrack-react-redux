@@ -4,12 +4,14 @@ import { useDispatch } from 'react-redux'
 
 import { loadFile } from '../store/actionCreators'
 import * as mm from 'music-metadata-browser'
-import blank_album_art from '../assets/blank_album.svg'
 
 type Props = {
+    className: string,
+    blankimg: string,
+    openimg: string
 }
 
-export const OpenButton: FC<Props> = () => {
+export const OpenButton: FC<Props> = (props: Props) => {
     const dispatch: Dispatch<any> = useDispatch()
 
     const onFileSelected = useCallback(
@@ -22,7 +24,7 @@ export const OpenButton: FC<Props> = () => {
             mm.parseBlob(file).then((metadata) => {
                 const title = (metadata.common.title) ? metadata.common.title : file.name
             
-                var art = blank_album_art
+                var art = props.blankimg
                 if (metadata.common.picture) {
                     const blob = new Blob(
                         [metadata.common.picture[0].data.buffer],
@@ -53,8 +55,10 @@ export const OpenButton: FC<Props> = () => {
                 onChange={onFileSelected}
                 style={{display: "none"}}
             />
-            <button type="button" onClick={onButtonClicked}>
-                <label htmlFor="open-file-button">Open File...</label>
+            <button className={props.className} type="button" onClick={onButtonClicked}>
+                <label htmlFor="open-file-button">
+                    <img src={props.openimg} style={{width: '50%', height: '50%'}}></img>
+                </label>
             </button>
         </div>
     )

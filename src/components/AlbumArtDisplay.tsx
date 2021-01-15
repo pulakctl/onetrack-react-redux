@@ -1,13 +1,14 @@
 import { FC } from 'react'
 
 type Props = {
+    id: string,
     src: string
 }
 
 export const AlbumArtDisplay: FC<Props> = (props: Props) => {
     return (
         <div>
-            <img src={props.src} style={{ width: 80, height: 80 }} alt="Album art" />
+            <img id={props.id} src={props.src} alt="Album art" />
         </div>
     )
 }

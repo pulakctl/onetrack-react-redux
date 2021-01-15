@@ -9,7 +9,7 @@ type Props = {
 export class Background extends Component<Props> {
     width = 0
     height = 0
-    deltaLightness = 15
+    deltaLightness = 20
     nRows = 20
     nColumns = 20
 

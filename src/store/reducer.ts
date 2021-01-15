@@ -45,6 +45,11 @@ const reducer = (
             bgColors: initialState.bgColors
         }
     }
+    if (isUpdateBgColorsAction(action)) {
+        return Object.assign({}, state, {
+            bgColors: action.colors
+        })
+    }
     if (isUpdateProgressAction(action)) {
         return Object.assign({}, state, {
             progress: action.progress
@@ -53,11 +58,6 @@ const reducer = (
     if (isUpdateDurationAction(action)) {
         return Object.assign({}, state, {
             duration: action.duration
-        })
-    }
-    if (isUpdateBgColorsAction(action)) {
-        return Object.assign({}, state, {
-            bgColors: action.colors
         })
     }
     if (isTogglePlaybackAction(action)) {

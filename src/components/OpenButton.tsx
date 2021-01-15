@@ -2,8 +2,10 @@ import { FC, useCallback } from 'react'
 import { Dispatch } from 'redux'
 import { useDispatch } from 'react-redux'
 
-import { loadFile } from '../store/actionCreators'
+import { loadFile, updateBgColors } from '../store/actionCreators'
 import * as mm from 'music-metadata-browser'
+import Vibrant from 'node-vibrant'
+import { Vec3 } from 'node-vibrant/lib/color'
 
 type Props = {
     className: string,
@@ -34,6 +36,21 @@ export const OpenButton: FC<Props> = (props: Props) => {
                     )
     
                     art = URL.createObjectURL(blob)
+
+                    Vibrant.from(art).getPalette(
+                        (err, palette) => {
+                            if (palette?.LightVibrant !== null && palette?.DarkMuted !== null) {
+                                let a = palette?.LightVibrant?.rgb as Vec3
+                                let b = palette?.DarkMuted?.rgb as Vec3
+                                let colors = [a, b]
+
+                                dispatch(updateBgColors(colors))
+                            } else {
+                                console.log("ERROR: " + err)
+                                console.log("PALETTE: " + palette)
+                            }
+                        }
+                    )
                 }
 
                 dispatch(loadFile(file, title, art))

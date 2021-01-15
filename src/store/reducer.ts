@@ -23,6 +23,9 @@ function isUpdateProgressAction(action: PlayerAction): action is UpdateProgressA
 function isUpdateDurationAction(action: PlayerAction): action is UpdateDurationAction {
     return (action as UpdateDurationAction).type === actionTypes.UPDATE_DURATION
 }
+function isUpdateBgColorsAction(action: PlayerAction): action is UpdateBgColorsAction {
+    return (action as UpdateBgColorsAction).type === actionTypes.UPDATE_BGCOLORS
+}
 function isTogglePlaybackAction(action: PlayerAction): action is TogglePlaybackAction {
     return (action as TogglePlaybackAction).type === actionTypes.TOGGLE_PLAYBACK
 }
@@ -50,6 +53,11 @@ const reducer = (
     if (isUpdateDurationAction(action)) {
         return Object.assign({}, state, {
             duration: action.duration
+        })
+    }
+    if (isUpdateBgColorsAction(action)) {
+        return Object.assign({}, state, {
+            bgColors: action.colors
         })
     }
     if (isTogglePlaybackAction(action)) {

@@ -40,3 +40,13 @@ export function updateDuration(duration: number) {
         dispatch(action)
     }
 }
+
+export function updateBgColors(colors: number[][]) {
+    let action: UpdateBgColorsAction = {
+        type: actionTypes.UPDATE_BGCOLORS,
+        colors: colors
+    }
+    return (dispatch: DispatchType) => {
+        dispatch(action)
+    }
+}

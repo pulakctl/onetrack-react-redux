@@ -61,7 +61,7 @@ html, body, #root {
     flex-direction: row;
 }
 
-#OpenButton {
+.ActionButton {
     margin-left: 20px;
     padding: 0px;
     height: 64px;
@@ -71,27 +71,10 @@ html, body, #root {
     align-items: center;
     box-shadow: 0px 0px 6px 6px rgba(0, 0, 0, 0.25), 0px 0px 6px 2px rgba(0, 0, 0, 0.1);
 }
-#OpenButton:focus {
+.ActionButton:focus {
     outline: none;
     background-color: grey;
 }
-#OpenButton:active {
+.ActionButton:active {
     box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.25);
-}
-
-#ToggleButton {
-    padding: 0px;
-    height: 64px;
-    width: 64px;
-    border-radius: 50%;
-    border: none;
-    align-items: center;
-    box-shadow: 0px 0px 6px 6px rgba(0, 0, 0, 0.25), 0px 0px 6px 2px rgba(0, 0, 0, 0.1);
-}
-#ToggleButton:focus {
-    outline: none;
-    background-color: grey;
-}
-#ToggleButton:active {
-    box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.25);
 }

@@ -42,14 +42,14 @@ function App() {
           </div>
           <div className="container-trackbuttons">
             <ToggleButton
-              id="ToggleButton"
+              className="ActionButton"
               file={currentFile}
               playing={playing}
               playimg={Assets.ICON_PLAY}
               pauseimg={Assets.ICON_PAUSE}
             />
             <OpenButton
-              id="OpenButton"
+              className="ActionButton"
               blankimg={Assets.ICON_BLANK_ALBUM}
               openimg={Assets.ICON_ADD}
               />

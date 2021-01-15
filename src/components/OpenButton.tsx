@@ -6,7 +6,7 @@ import { loadFile } from '../store/actionCreators'
 import * as mm from 'music-metadata-browser'
 
 type Props = {
-    id: string,
+    className: string,
     blankimg: string,
     openimg: string
 }
@@ -55,7 +55,7 @@ export const OpenButton: FC<Props> = (props: Props) => {
                 onChange={onFileSelected}
                 style={{display: "none"}}
             />
-            <button id={props.id} type="button" onClick={onButtonClicked}>
+            <button className={props.className} type="button" onClick={onButtonClicked}>
                 <label htmlFor="open-file-button">
                     <img src={props.openimg} style={{width: '50%', height: '50%'}}></img>
                 </label>

@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux'
 import { togglePlayback } from '../store/actionCreators'
 
 type Props = {
-    id: string,
+    className: string,
     file: File,
     playing: boolean,
     playimg: string,
@@ -22,7 +22,7 @@ export const ToggleButton: FC<Props> = (props: Props) => {
     let displayimg = props.playing ? props.pauseimg : props.playimg
 
     return (
-        <button id={props.id} disabled={props.file.name === ""} onClick={toggle}>
+        <button className={props.className} disabled={props.file.name === ""} onClick={toggle}>
             <img src={displayimg} style={{width: '50%', height: '50%'}}></img>
         </button>
     )

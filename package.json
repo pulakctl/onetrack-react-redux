@@ -12,7 +12,7 @@
     "@types/react-dom": "^16.9.10",
     "@types/wavesurfer.js": "^3.3.1",
     "music-metadata-browser": "^2.2.0",
-    "node-vibrant": "^3.2.1-alpha.1",
+    "node-vibrant": "^3.1.6",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-redux": "^7.2.2",

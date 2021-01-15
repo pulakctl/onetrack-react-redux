@@ -57,7 +57,7 @@ export const OpenButton: FC<Props> = (props: Props) => {
             />
             <button id={props.id} type="button" onClick={onButtonClicked}>
                 <label htmlFor="open-file-button">
-                    <img src={props.openimg}></img>
+                    <img src={props.openimg} style={{width: '50%', height: '50%'}}></img>
                 </label>
             </button>
         </div>

@@ -39,7 +39,7 @@ export const OpenButton: FC<Props> = (props: Props) => {
                 dispatch(loadFile(file, title, art))
             })
         },
-        [dispatch]
+        [dispatch, props.blankimg]
     )
     
     const onButtonClicked = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -57,7 +57,7 @@ export const OpenButton: FC<Props> = (props: Props) => {
             />
             <button className={props.className} type="button" onClick={onButtonClicked}>
                 <label htmlFor="open-file-button">
-                    <img src={props.openimg} style={{width: '50%', height: '50%'}}></img>
+                    <img src={props.openimg} alt="Open file" style={{width: '50%', height: '50%'}}></img>
                 </label>
             </button>
         </div>

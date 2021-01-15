@@ -23,7 +23,7 @@ export const ToggleButton: FC<Props> = (props: Props) => {
 
     return (
         <button className={props.className} disabled={props.file.name === ""} onClick={toggle}>
-            <img src={displayimg} style={{width: '50%', height: '50%'}}></img>
+            <img src={displayimg} alt="Toggle playback" style={{width: '50%', height: '50%'}}></img>
         </button>
     )
 }

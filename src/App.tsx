@@ -8,6 +8,7 @@ import { OpenButton } from './components/OpenButton'
 import { AlbumArtDisplay } from './components/AlbumArtDisplay'
 import { ProgressDisplay } from './components/ProgressDisplay'
 import { TrackNameDisplay } from './components/TrackNameDisplay'
+import { Background } from './components/Background';
 
 import * as Assets from './Assets'
 
@@ -57,6 +58,7 @@ function App() {
         </div>
       </div>
       <Waveform id="waveform" file={currentFile} playing={playing} />
+      <Background id="background"/>
     </div>
   );
 }

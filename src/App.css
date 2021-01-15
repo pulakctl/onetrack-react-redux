@@ -59,10 +59,11 @@ html, body, #root {
 .container-trackbuttons {
     display: flex;
     flex-direction: row;
+    padding-bottom: 4px;
+    column-gap: 30px;
 }
 
 .ActionButton {
-    margin-left: 20px;
     padding: 0px;
     height: 64px;
     width: 64px;

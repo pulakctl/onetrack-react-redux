@@ -1,6 +1,7 @@
 import { FC } from 'react'
 
 type Props = {
+    id: string,
     name: string
 }
 
@@ -12,8 +13,6 @@ export const TrackNameDisplay: FC<Props> = (props: Props) => {
     }
 
     return (
-        <div>
-            <p>{display}</p>
-        </div>
+        <p id={props.id}>{display}</p>
     )
 }

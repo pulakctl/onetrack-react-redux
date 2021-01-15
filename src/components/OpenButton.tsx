@@ -7,9 +7,10 @@ import * as mm from 'music-metadata-browser'
 import blank_album_art from '../assets/blank_album.svg'
 
 type Props = {
+    id: string
 }
 
-export const OpenButton: FC<Props> = () => {
+export const OpenButton: FC<Props> = (props: Props) => {
     const dispatch: Dispatch<any> = useDispatch()
 
     const onFileSelected = useCallback(
@@ -53,7 +54,7 @@ export const OpenButton: FC<Props> = () => {
                 onChange={onFileSelected}
                 style={{display: "none"}}
             />
-            <button type="button" onClick={onButtonClicked}>
+            <button id={props.id} type="button" onClick={onButtonClicked}>
                 <label htmlFor="open-file-button">Open File...</label>
             </button>
         </div>

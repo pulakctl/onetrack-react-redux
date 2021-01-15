@@ -1,6 +1,7 @@
 import { FC } from 'react'
 
 type Props = {
+    id: string,
     progress: number,
     duration: number
 }
@@ -41,10 +42,10 @@ export const ProgressDisplay: FC<Props> = (props: Props) => {
         return displayHMS + ":" + displayMs
     }
 
-    let display = (<p>{toDisplayFormat(props.progress)}/{toDisplayFormat(props.duration)}</p>)
+    let display = (<p id={props.id}>{toDisplayFormat(props.progress)}/{toDisplayFormat(props.duration)}</p>)
 
     if (props.duration === 0.0) {
-        display = (<p>--/--</p>)
+        display = (<p id={props.id}>--/--</p>)
     }
 
     return (

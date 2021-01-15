@@ -31,12 +31,12 @@ function App() {
 
   return (
     <div className="App">
-      <AlbumArtDisplay src={albumArt} />
-      <TrackNameDisplay name={currentTrack} />
-      <ProgressDisplay progress={progress} duration={duration} />
-      <OpenButton />
-      <ToggleButton file={currentFile} playing={playing} />
-      <Waveform file={currentFile} playing={playing} />
+      <AlbumArtDisplay id="AlbumArt" src={albumArt} />
+      <TrackNameDisplay id="TrackName" name={currentTrack} />
+      <ProgressDisplay id="Progress" progress={progress} duration={duration} />
+      <OpenButton id="OpenButton" />
+      <ToggleButton id="ToggleButton" file={currentFile} playing={playing} />
+      <Waveform id="waveform" file={currentFile} playing={playing} />
     </div>
   );
 }

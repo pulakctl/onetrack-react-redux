@@ -7,7 +7,9 @@ import { togglePlayback } from '../store/actionCreators'
 type Props = {
     id: string,
     file: File,
-    playing: boolean
+    playing: boolean,
+    playimg: string,
+    pauseimg: string
 }
 
 export const ToggleButton: FC<Props> = (props: Props) => {
@@ -17,9 +19,11 @@ export const ToggleButton: FC<Props> = (props: Props) => {
         dispatch(togglePlayback())
     }
 
-    let display = props.playing ? "Pause" : "Play"
+    let displayimg = props.playing ? props.pauseimg : props.playimg
 
     return (
-        <button id={props.id} disabled={props.file.name === ""} onClick={toggle}>{display}</button>
+        <button id={props.id} disabled={props.file.name === ""} onClick={toggle}>
+            <img src={displayimg}></img>
+        </button>
     )
 }

@@ -9,6 +9,8 @@ import { AlbumArtDisplay } from './components/AlbumArtDisplay'
 import { ProgressDisplay } from './components/ProgressDisplay'
 import { TrackNameDisplay } from './components/TrackNameDisplay'
 
+import * as Assets from './Assets'
+
 function App() {
   const albumArt: string = useSelector(
     (state: PlayerState) => state.albumArt
@@ -39,8 +41,18 @@ function App() {
             <ProgressDisplay id="Progress" progress={progress} duration={duration} />
           </div>
           <div className="container-trackbuttons">
-          <ToggleButton id="ToggleButton" file={currentFile} playing={playing} />
-            <OpenButton id="OpenButton" />
+            <ToggleButton
+              id="ToggleButton"
+              file={currentFile}
+              playing={playing}
+              playimg={Assets.ICON_PLAY}
+              pauseimg={Assets.ICON_PAUSE}
+            />
+            <OpenButton
+              id="OpenButton"
+              blankimg={Assets.ICON_BLANK_ALBUM}
+              openimg={Assets.ICON_ADD}
+              />
           </div>
         </div>
       </div>

@@ -4,7 +4,8 @@ type PlayerState = {
     currentFile: File,
     playing: boolean,
     progress: number,
-    duration: number
+    duration: number,
+    bgColors: number[][]
 }
 
 type LoadAction = {

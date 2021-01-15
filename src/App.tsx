@@ -31,6 +31,9 @@ function App() {
   const currentTrack: string = useSelector(
     (state: PlayerState) => state.title
   )
+  const colors: number[][] = useSelector(
+    (state: PlayerState) => state.bgColors
+  )
 
   return (
     <div className="App">
@@ -58,7 +61,7 @@ function App() {
         </div>
       </div>
       <Waveform id="waveform" file={currentFile} playing={playing} />
-      <Background id="background"/>
+      <Background id="background" colors={colors}/>
     </div>
   );
 }

@@ -2,16 +2,13 @@ import { Component } from 'react'
 
 type Props = {
     id: string
+    colors: number[][]
 }
 
 export class Background extends Component<Props> {
     width = 0
     height = 0
-    colors = [
-        [60, 60, 60],
-        [105, 105, 105]
-    ]
-    deltaLightness = 20
+    deltaLightness = 15
     nRows = 20
     nColumns = 20
 
@@ -145,7 +142,7 @@ export class Background extends Component<Props> {
                 p3[1] = (j + 1) * h
 
                 r = Math.floor(Math.random() * 2)
-                cl = this.shiftColor(this.colors[r])
+                cl = this.shiftColor(this.props.colors[r])
                 ctx.fillStyle = `rgb(${cl[0]}, ${cl[1]}, ${cl[2]})`
                 ctx.strokeStyle = `rgb(${cl[0]}, ${cl[1]}, ${cl[2]})`
                 ctx.beginPath()
@@ -157,7 +154,7 @@ export class Background extends Component<Props> {
                 p4[0] = (i + 1) * w
                 p4[1] = (j + 1) * h
                 r = Math.floor(Math.random() * 2)
-                cl = this.shiftColor(this.colors[r])
+                cl = this.shiftColor(this.props.colors[r])
                 ctx.fillStyle = `rgb(${cl[0]}, ${cl[1]}, ${cl[2]})`
                 ctx.strokeStyle = `rgb(${cl[0]}, ${cl[1]}, ${cl[2]})`
                 ctx.beginPath()

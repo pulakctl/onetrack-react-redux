@@ -7,7 +7,11 @@ const initialState: PlayerState = {
     albumArt: Assets.ICON_BLANK_ALBUM,
     playing: true,
     progress: 0.0,
-    duration: 0.0
+    duration: 0.0,
+    bgColors: [
+        [70, 70, 70],
+        [100, 100, 100]
+    ]
 }
 
 function isLoadAction(action: PlayerAction): action is LoadAction {
@@ -34,7 +38,8 @@ const reducer = (
             albumArt: action.albumArt,
             playing: state.playing,
             progress: 0.0,
-            duration: 0.0
+            duration: 0.0,
+            bgColors: initialState.bgColors
         }
     }
     if (isUpdateProgressAction(action)) {

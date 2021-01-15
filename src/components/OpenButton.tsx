@@ -39,7 +39,7 @@ export const OpenButton: FC<Props> = (props: Props) => {
                 dispatch(loadFile(file, title, art))
             })
         },
-        [dispatch]
+        [dispatch, props.blankimg]
     )
     
     const onButtonClicked = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {

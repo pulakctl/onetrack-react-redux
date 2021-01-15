@@ -18,8 +18,8 @@ html, body, #root {
 }
 
 #AlbumArt {
-    width: 240px;
-    height: 240px;
+    width: 3in;
+    height: 3in;
     object-fit: contain;
 }
 
@@ -28,7 +28,7 @@ html, body, #root {
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
-    padding: 0px 16px 0px 16px;
+    padding: 0in 0.3in 0in 0.3in;
 }
 
 .container-trackdetails {
@@ -41,7 +41,7 @@ html, body, #root {
     font-size: 3em;
 
     width: max-content;
-    padding: 5px 10px 5px 10px;
+    padding: 0.1in 0.15in 0.1in 0.15in;
     background-color: black;
     color: white;
 }
@@ -51,7 +51,7 @@ html, body, #root {
     font-size: 2em;
     font-family: monospace;
     width: max-content;
-    padding: 5px 10px 5px 10px;
+    padding: 0.1in 0.15in 0.1in 0.15in;
     background-color: silver;
     color: black;
 }
@@ -59,25 +59,26 @@ html, body, #root {
 .container-trackbuttons {
     display: flex;
     flex-direction: row;
-    padding-bottom: 4px;
-    column-gap: 30px;
+    padding-left: 0.1in;
+    padding-bottom: 0.1in;
+    column-gap: 0.5in;
 }
 
 .ActionButton {
-    padding: 0px;
-    height: 64px;
-    width: 64px;
+    padding: 0in;
+    height: 0.6in;
+    width: 0.6in;
     border-radius: 50%;
     border: none;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0px 0px 6px 6px rgba(0, 0, 0, 0.25), 0px 0px 6px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0in 0in 0.1in 0.1in rgba(0, 0, 0, 0.25), 0in 0in 0.1in 0.05in rgba(0, 0, 0, 0.1);
 }
 .ActionButton:focus {
     outline: none;
     background-color: silver;
 }
 .ActionButton:active {
-    box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.25);
+    box-shadow: 0in 0in 0.15in 0.1in rgba(0, 0, 0, 0.25);
 }

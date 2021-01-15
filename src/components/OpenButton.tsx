@@ -39,8 +39,24 @@ export const OpenButton: FC<Props> = (props: Props) => {
 
                     Vibrant.from(art).getPalette(
                         (err, palette) => {
-                            if (palette?.LightVibrant !== null && palette?.DarkMuted !== null) {
-                                let a = palette?.LightVibrant?.rgb as Vec3
+                            /*
+                            let c = palette?.DarkMuted?.rgb as Vec3
+                            console.log('%c Dark Muted', `color: rgb(${c[0]}, ${c[1]}, ${c[2]})`)
+                            c = palette?.Muted?.rgb as Vec3
+                            console.log('%c Muted', `color: rgb(${c[0]}, ${c[1]}, ${c[2]})`)
+                            c = palette?.LightMuted?.rgb as Vec3
+                            console.log('%c Light Muted', `color: rgb(${c[0]}, ${c[1]}, ${c[2]})`)
+
+                            c = palette?.DarkVibrant?.rgb as Vec3
+                            console.log('%c Dark Vibrant', `color: rgb(${c[0]}, ${c[1]}, ${c[2]})`)
+                            c = palette?.Vibrant?.rgb as Vec3
+                            console.log('%c Vibrant', `color: rgb(${c[0]}, ${c[1]}, ${c[2]})`)
+                            c = palette?.LightVibrant?.rgb as Vec3
+                            console.log('%c Light Vibrant', `color: rgb(${c[0]}, ${c[1]}, ${c[2]})`)
+                            */
+
+                            if (palette?.Vibrant !== null && palette?.DarkMuted !== null) {
+                                let a = palette?.Vibrant?.rgb as Vec3
                                 let b = palette?.DarkMuted?.rgb as Vec3
                                 let colors = [a, b]
 

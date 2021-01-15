@@ -1,5 +1,5 @@
 import * as actionTypes from "./actionTypes"
-import blank_album_art from "../assets/blank_album.svg"
+import blank_album_art from "../assets/album.svg"
 
 const initialState: PlayerState = {
     currentFile: new File([], ""),

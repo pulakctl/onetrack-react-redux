@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 
 import { loadFile } from '../store/actionCreators'
 import * as mm from 'music-metadata-browser'
-import blank_album_art from '../assets/blank_album.svg'
+import blank_album_art from '../assets/album.svg'
 
 type Props = {
     id: string

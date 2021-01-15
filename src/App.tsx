@@ -8,6 +8,7 @@ import { OpenButton } from './components/OpenButton'
 import { AlbumArtDisplay } from './components/AlbumArtDisplay'
 import { ProgressDisplay } from './components/ProgressDisplay'
 import { TrackNameDisplay } from './components/TrackNameDisplay'
+import { Background } from './components/Background';
 
 import * as Assets from './Assets'
 
@@ -29,6 +30,9 @@ function App() {
   )
   const currentTrack: string = useSelector(
     (state: PlayerState) => state.title
+  )
+  const colors: number[][] = useSelector(
+    (state: PlayerState) => state.bgColors
   )
 
   return (
@@ -57,6 +61,7 @@ function App() {
         </div>
       </div>
       <Waveform id="waveform" file={currentFile} playing={playing} />
+      <Background id="background" colors={colors}/>
     </div>
   );
 }

@@ -4,7 +4,8 @@ type PlayerState = {
     currentFile: File,
     playing: boolean,
     progress: number,
-    duration: number
+    duration: number,
+    bgColors: number[][]
 }
 
 type LoadAction = {
@@ -28,6 +29,15 @@ type UpdateDurationAction = {
     duration: number
 }
 
-type PlayerAction = LoadAction | UpdateProgressAction | UpdateDurationAction | TogglePlaybackAction
+type UpdateBgColorsAction = {
+    type: string,
+    colors: number[][]
+}
+
+type PlayerAction = LoadAction
+        | UpdateProgressAction
+        | UpdateDurationAction
+        | UpdateBgColorsAction
+        | TogglePlaybackAction
 
 type DispatchType = (args: PlayerAction) => PlayerAction

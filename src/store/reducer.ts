@@ -7,7 +7,11 @@ const initialState: PlayerState = {
     albumArt: Assets.ICON_BLANK_ALBUM,
     playing: true,
     progress: 0.0,
-    duration: 0.0
+    duration: 0.0,
+    bgColors: [
+        [70, 70, 70],
+        [100, 100, 100]
+    ]
 }
 
 function isLoadAction(action: PlayerAction): action is LoadAction {
@@ -18,6 +22,9 @@ function isUpdateProgressAction(action: PlayerAction): action is UpdateProgressA
 }
 function isUpdateDurationAction(action: PlayerAction): action is UpdateDurationAction {
     return (action as UpdateDurationAction).type === actionTypes.UPDATE_DURATION
+}
+function isUpdateBgColorsAction(action: PlayerAction): action is UpdateBgColorsAction {
+    return (action as UpdateBgColorsAction).type === actionTypes.UPDATE_BGCOLORS
 }
 function isTogglePlaybackAction(action: PlayerAction): action is TogglePlaybackAction {
     return (action as TogglePlaybackAction).type === actionTypes.TOGGLE_PLAYBACK
@@ -34,8 +41,14 @@ const reducer = (
             albumArt: action.albumArt,
             playing: state.playing,
             progress: 0.0,
-            duration: 0.0
+            duration: 0.0,
+            bgColors: initialState.bgColors
         }
+    }
+    if (isUpdateBgColorsAction(action)) {
+        return Object.assign({}, state, {
+            bgColors: action.colors
+        })
     }
     if (isUpdateProgressAction(action)) {
         return Object.assign({}, state, {

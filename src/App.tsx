@@ -6,7 +6,6 @@ import Waveform from './components/Waveform'
 import { ToggleButton } from './components/ToggleButton'
 import { OpenButton } from './components/OpenButton'
 import { AlbumArtDisplay } from './components/AlbumArtDisplay'
-import { ProgressDisplay } from './components/ProgressDisplay'
 import { TrackNameDisplay } from './components/TrackNameDisplay'
 import Background from './components/Background';
 
@@ -22,12 +21,6 @@ function App() {
   const playing: boolean = useSelector(
     (state: PlayerState) => state.playing
   )
-  const progress: number = useSelector(
-    (state: PlayerState) => state.progress
-  )
-  const duration: number = useSelector(
-    (state: PlayerState) => state.duration
-  )
   const currentTrack: string = useSelector(
     (state: PlayerState) => state.title
   )
@@ -39,7 +32,6 @@ function App() {
         <div className="container-details">
           <div className="container-trackdetails">
             <TrackNameDisplay id="TrackName" name={currentTrack} />
-            <ProgressDisplay id="Progress" progress={progress} duration={duration} />
           </div>
           <div className="container-trackbuttons">
             <ToggleButton

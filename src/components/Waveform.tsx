@@ -2,8 +2,6 @@ import { Component, Dispatch } from 'react'
 import { connect } from 'react-redux'
 import WaveSurfer from 'wavesurfer.js'
 
-import { updateDuration, updateProgress } from '../store/actionCreators'
-
 type Props = {
     id: string,
     dispatch: Dispatch<any>,
@@ -26,17 +24,14 @@ class Waveform extends Component<Props> {
         
         this.playIfEnabled = this.playIfEnabled.bind(this)
         this.onSeek = this.onSeek.bind(this)
-        this.onProgress = this.onProgress.bind(this)
         this.onReady = this.onReady.bind(this)
 
         this.waveform.on("ready", this.onReady)
         this.waveform.on("finish", this.playIfEnabled)
         this.waveform.on("seek", this.onSeek)
-        this.waveform.on("audioprocess", this.onProgress)
     }
 
     componentDidUpdate() {
-        this.props.dispatch(updateDuration(0.0))
         this.waveform?.loadBlob(this.props.file)
     }
 
@@ -49,20 +44,10 @@ class Waveform extends Component<Props> {
     }
 
     onSeek(seekPercentage: number) {
-        let duration = (this.waveform?.getDuration() ? this.waveform.getDuration() : 0.0)
-        let newProgress = seekPercentage * duration
-        
-        this.props.dispatch(updateProgress(newProgress))
         this.toggle(this.props.playing)
     }
 
-    onProgress(progress: number) {
-        this.props.dispatch(updateProgress(progress))
-    }
-
     onReady() {
-        let duration = (this.waveform?.getDuration() ? this.waveform.getDuration() : 0.0)
-        this.props.dispatch(updateDuration(duration))
         this.playIfEnabled()
     }
 

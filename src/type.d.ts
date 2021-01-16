@@ -3,8 +3,6 @@ type PlayerState = {
     albumArt: string,
     currentFile: File,
     playing: boolean,
-    progress: number,
-    duration: number,
     bgColors: number[][]
 }
 
@@ -19,24 +17,12 @@ type TogglePlaybackAction = {
     type: string
 }
 
-type UpdateProgressAction = {
-    type: string,
-    progress: number
-}
-
-type UpdateDurationAction = {
-    type: string,
-    duration: number
-}
-
 type UpdateBgColorsAction = {
     type: string,
     colors: number[][]
 }
 
 type PlayerAction = LoadAction
-        | UpdateProgressAction
-        | UpdateDurationAction
         | UpdateBgColorsAction
         | TogglePlaybackAction
 

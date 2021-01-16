@@ -1,13 +1,11 @@
 import * as actionTypes from "./actionTypes"
-import * as Assets from '../Assets'
+import * as Assets from "../Assets"
 
 const initialState: PlayerState = {
-    currentFile: new File([], ""),
+    currentFileUrl: '',
     title: '',
-    albumArt: Assets.ICON_BLANK_ALBUM,
+    albumArtUrl: Assets.ICON_BLANK_ALBUM,
     playing: true,
-    progress: 0.0,
-    duration: 0.0,
     bgColors: [
         [70, 70, 70],
         [100, 100, 100]
@@ -16,12 +14,6 @@ const initialState: PlayerState = {
 
 function isLoadAction(action: PlayerAction): action is LoadAction {
     return (action as LoadAction).type === actionTypes.LOAD_FILE
-}
-function isUpdateProgressAction(action: PlayerAction): action is UpdateProgressAction {
-    return (action as UpdateProgressAction).type === actionTypes.UPDATE_PROGRESS
-}
-function isUpdateDurationAction(action: PlayerAction): action is UpdateDurationAction {
-    return (action as UpdateDurationAction).type === actionTypes.UPDATE_DURATION
 }
 function isUpdateBgColorsAction(action: PlayerAction): action is UpdateBgColorsAction {
     return (action as UpdateBgColorsAction).type === actionTypes.UPDATE_BGCOLORS
@@ -36,34 +28,23 @@ const reducer = (
 ): PlayerState => {
     if (isLoadAction(action)) {
         return {
-            currentFile: action.file,
+            ...state,
+            currentFileUrl: action.fileUrl,
             title: action.title,
-            albumArt: action.albumArt,
-            playing: state.playing,
-            progress: 0.0,
-            duration: 0.0,
-            bgColors: initialState.bgColors
+            albumArtUrl: action.albumArtUrl,
         }
     }
     if (isUpdateBgColorsAction(action)) {
-        return Object.assign({}, state, {
-            bgColors: action.colors
-        })
-    }
-    if (isUpdateProgressAction(action)) {
-        return Object.assign({}, state, {
-            progress: action.progress
-        })
-    }
-    if (isUpdateDurationAction(action)) {
-        return Object.assign({}, state, {
-            duration: action.duration
-        })
+        return {
+            ...state,
+            bgColors: action.colors.length === 0 ? initialState.bgColors : action.colors
+        }
     }
     if (isTogglePlaybackAction(action)) {
-        return Object.assign({}, state, {
+        return {
+            ...state,
             playing: !state.playing
-        })
+        }
     }
 
     return state;

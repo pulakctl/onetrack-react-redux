@@ -1,12 +1,13 @@
 import Vibrant from 'node-vibrant'
 import { Component } from 'react'
+import { connect } from 'react-redux'
 
 type Props = {
     id: string
     colors: number[][]
 }
 
-export class Background extends Component<Props> {
+class Background extends Component<Props> {
     width = 0
     height = 0
     deltaLightness = 20
@@ -96,3 +97,11 @@ export class Background extends Component<Props> {
         )
     }
 }
+
+const mapStateToProps = (state: PlayerState) => {
+    return {
+        colors: state.bgColors
+    }
+}
+
+export default connect(mapStateToProps)(Background)

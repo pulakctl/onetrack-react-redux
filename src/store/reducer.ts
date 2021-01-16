@@ -36,34 +36,37 @@ const reducer = (
 ): PlayerState => {
     if (isLoadAction(action)) {
         return {
+            ...state,
             currentFile: action.file,
             title: action.title,
             albumArt: action.albumArt,
-            playing: state.playing,
             progress: 0.0,
-            duration: 0.0,
-            bgColors: initialState.bgColors
+            duration: 0.0
         }
     }
     if (isUpdateBgColorsAction(action)) {
-        return Object.assign({}, state, {
+        return {
+            ...state,
             bgColors: action.colors
-        })
+        }
     }
     if (isUpdateProgressAction(action)) {
-        return Object.assign({}, state, {
+        return {
+            ...state,
             progress: action.progress
-        })
+        }
     }
     if (isUpdateDurationAction(action)) {
-        return Object.assign({}, state, {
+        return {
+            ...state,
             duration: action.duration
-        })
+        }
     }
     if (isTogglePlaybackAction(action)) {
-        return Object.assign({}, state, {
+        return {
+            ...state,
             playing: !state.playing
-        })
+        }
     }
 
     return state;

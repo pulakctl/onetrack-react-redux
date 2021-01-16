@@ -1,10 +1,10 @@
 import * as actionTypes from "./actionTypes"
-import * as Assets from '../Assets'
+import * as Assets from "../Assets"
 
 const initialState: PlayerState = {
-    currentFile: new File([], ""),
+    currentFileUrl: '',
     title: '',
-    albumArt: Assets.ICON_BLANK_ALBUM,
+    albumArtUrl: Assets.ICON_BLANK_ALBUM,
     playing: true,
     bgColors: [
         [70, 70, 70],
@@ -29,15 +29,15 @@ const reducer = (
     if (isLoadAction(action)) {
         return {
             ...state,
-            currentFile: action.file,
+            currentFileUrl: action.fileUrl,
             title: action.title,
-            albumArt: action.albumArt,
+            albumArtUrl: action.albumArtUrl,
         }
     }
     if (isUpdateBgColorsAction(action)) {
         return {
             ...state,
-            bgColors: action.colors
+            bgColors: action.colors.length === 0 ? initialState.bgColors : action.colors
         }
     }
     if (isTogglePlaybackAction(action)) {

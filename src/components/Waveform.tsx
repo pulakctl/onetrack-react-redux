@@ -5,7 +5,7 @@ import WaveSurfer from 'wavesurfer.js'
 type Props = {
     id: string,
     dispatch: Dispatch<any>,
-    file: File,
+    fileUrl: string,
     playing: boolean
 }
 
@@ -32,7 +32,7 @@ class Waveform extends Component<Props> {
     }
 
     componentDidUpdate() {
-        this.waveform?.loadBlob(this.props.file)
+        this.waveform?.load(this.props.fileUrl)
     }
 
     shouldComponentUpdate(nextProps: Props, nextState: PlayerState) {
@@ -73,7 +73,7 @@ class Waveform extends Component<Props> {
 
 const mapStateToProps = (state: PlayerState) => {
     return {
-        file: state.currentFile,
+        fileUrl: state.currentFileUrl,
         playing: state.playing
     }
 }

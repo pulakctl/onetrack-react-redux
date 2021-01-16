@@ -86,4 +86,11 @@ class Waveform extends Component<Props> {
     }
 }
 
-export default connect()(Waveform)
+const mapStateToProps = (state: PlayerState) => {
+    return {
+        file: state.currentFile,
+        playing: state.playing
+    }
+}
+
+export default connect(mapStateToProps)(Waveform)

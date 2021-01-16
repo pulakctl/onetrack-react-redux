@@ -71,7 +71,7 @@ class Waveform extends Component<Props> {
 
     render() {
         return (
-            <div id={this.props.id}>
+            <div id={this.props.id} style={{ height: 256 }}>
             </div>
         )
     }

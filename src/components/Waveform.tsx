@@ -13,25 +13,17 @@ class Waveform extends Component<Props> {
     waveform: WaveSurfer | undefined
 
     componentDidMount() {
-        this.waveform = WaveSurfer.create({
-            container: "#" + this.props.id,
-            responsive: true,
-            cursorWidth: 1,
-            barWidth: 2,
-            loopSelection: false,
-            splitChannels: true
-        })
-        
         this.playIfEnabled = this.playIfEnabled.bind(this)
         this.onSeek = this.onSeek.bind(this)
         this.onReady = this.onReady.bind(this)
+        this.createWaveform = this.createWaveform.bind(this)
 
-        this.waveform.on("ready", this.onReady)
-        this.waveform.on("finish", this.playIfEnabled)
-        this.waveform.on("seek", this.onSeek)
+        this.createWaveform()
     }
 
     componentDidUpdate() {
+        this.waveform?.destroy()
+        this.createWaveform()
         this.waveform?.load(this.props.fileUrl)
     }
 
@@ -41,6 +33,20 @@ class Waveform extends Component<Props> {
             return false
         }
         return true
+    }
+
+    createWaveform() {
+        this.waveform = WaveSurfer.create({
+            container: "#" + this.props.id,
+            responsive: true,
+            cursorWidth: 1,
+            barWidth: 2,
+            loopSelection: false,
+            splitChannels: true
+        })
+        this.waveform.on("ready", this.onReady)
+        this.waveform.on("finish", this.playIfEnabled)
+        this.waveform.on("seek", this.onSeek)
     }
 
     onSeek(seekPercentage: number) {

@@ -30,3 +30,13 @@ export function updateBgColors(colors: number[][]) {
         dispatch(action)
     }
 }
+
+export function setReady(ready: boolean) {
+    let action: SetReadyAction = {
+        type: actionTypes.SET_READY,
+        ready: ready
+    }
+    return (dispatch: DispatchType) => {
+        dispatch(action)
+    }
+}

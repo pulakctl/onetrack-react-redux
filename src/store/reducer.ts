@@ -5,7 +5,8 @@ const initialState: PlayerState = {
     currentFileUrl: '',
     title: '',
     albumArtUrl: Assets.ICON_BLANK_ALBUM,
-    playing: true,
+    ready: false,
+    playing: false,
     bgColors: [
         [70, 70, 70],
         [100, 100, 100]
@@ -17,6 +18,9 @@ function isLoadAction(action: PlayerAction): action is LoadAction {
 }
 function isUpdateBgColorsAction(action: PlayerAction): action is UpdateBgColorsAction {
     return (action as UpdateBgColorsAction).type === actionTypes.UPDATE_BGCOLORS
+}
+function isSetReadyAction(action: PlayerAction): action is SetReadyAction {
+    return (action as SetReadyAction).type === actionTypes.SET_READY
 }
 function isTogglePlaybackAction(action: PlayerAction): action is TogglePlaybackAction {
     return (action as TogglePlaybackAction).type === actionTypes.TOGGLE_PLAYBACK
@@ -38,6 +42,12 @@ const reducer = (
         return {
             ...state,
             bgColors: action.colors.length === 0 ? initialState.bgColors : action.colors
+        }
+    }
+    if (isSetReadyAction(action)) {
+        return {
+            ...state,
+            ready: action.ready
         }
     }
     if (isTogglePlaybackAction(action)) {

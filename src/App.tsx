@@ -27,27 +27,23 @@ function App() {
 
   return (
     <div className="App">
-      <div className="container-outer">
+      <div className="container-trackdetails">
         <AlbumArtDisplay id="AlbumArt" src={albumArtUrl} />
-        <div className="container-details">
-          <div className="container-trackdetails">
-            <TrackNameDisplay id="TrackName" name={currentTrack} />
-          </div>
-          <div className="container-trackbuttons">
-            <ToggleButton
-              className="ActionButton"
-              enabled={ready}
-              playing={playing}
-              playimg={Assets.ICON_PLAY}
-              pauseimg={Assets.ICON_PAUSE}
-            />
-            <OpenButton
-              className="ActionButton"
-              openimg={Assets.ICON_ADD}
-              />
-          </div>
-        </div>
+        <TrackNameDisplay id="TrackName" name={currentTrack} />
       </div>
+      <div className="container-controls">
+          <ToggleButton
+            className="ActionButton"
+            enabled={ready}
+            playing={playing}
+            playimg={Assets.ICON_PLAY}
+            pauseimg={Assets.ICON_PAUSE}
+          />
+          <OpenButton
+            className="ActionButton"
+            openimg={Assets.ICON_ADD}
+            />
+        </div>
       <Waveform id="waveform" />
       <Background id="background" />
     </div>

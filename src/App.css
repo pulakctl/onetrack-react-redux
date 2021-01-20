@@ -6,62 +6,38 @@ html, body, #root {
 .App {
     padding: 0.3in;
     width: calc(100% - 0.6in);
-    height: calc(100% - 0.6in);
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    row-gap: 0.3in;
 }
 
-.container-outer {
+.container-controls {
     display: flex;
     flex-direction: row;
+    column-gap: 0.3in;
 }
 
 #AlbumArt {
     width: 3in;
-    height: 3in;
     object-fit: contain;
 }
 
-.container-details {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 100%;
-    padding: 0in 0.3in 0in 0.3in;
-}
-
-.container-trackdetails {
-    display: flex;
-    flex-direction: column;
-}
-
 #TrackName {
-    margin: 0;
-    font-size: 3em;
-
     width: max-content;
+    height: max-content;
     padding: 0.1in 0.15in 0.1in 0.15in;
     background-color: black;
     color: white;
 }
 
 #Progress {
-    margin: 0;
     font-size: 2em;
     font-family: monospace;
     width: max-content;
     padding: 0.1in 0.15in 0.1in 0.15in;
     background-color: silver;
     color: black;
-}
-
-.container-trackbuttons {
-    display: flex;
-    flex-direction: row;
-    padding-left: 0.1in;
-    padding-bottom: 0.1in;
-    column-gap: 0.5in;
 }
 
 .ActionButton {
@@ -81,4 +57,21 @@ html, body, #root {
 }
 .ActionButton:active {
     box-shadow: 0in 0in 0.15in 0.1in rgba(0, 0, 0, 0.25);
+}
+
+/* responsive layout */
+
+@media (min-width : 850px) {
+    .container-trackdetails {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+@media (max-width : 850px) {
+    .container-trackdetails {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }

@@ -1,34 +1,34 @@
 html, body, #root {
-    width: 100%;
-    height: 100%;
+    max-width: 100%;
+}
+
+body {
+    padding: 0.3in;
 }
 
 .App {
-    padding: 0.3in;
-    width: calc(100% - 0.6in);
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     row-gap: 0.3in;
 }
 
+#TrackDetails {
+    align-self: flex-start;
+    box-sizing: content-box;
+    max-width: 100%;
+}
+
+.container-trackdetails {
+    display: flex;
+    align-items: center;
+    flex: 1 1 0;
+}
+
 .container-controls {
     display: flex;
     flex-direction: row;
     column-gap: 0.3in;
-}
-
-#AlbumArt {
-    width: 3in;
-    object-fit: contain;
-}
-
-#TrackName {
-    width: max-content;
-    height: max-content;
-    padding: 0.1in 0.15in 0.1in 0.15in;
-    background-color: black;
-    color: white;
 }
 
 #Progress {
@@ -63,15 +63,29 @@ html, body, #root {
 
 @media (min-width : 850px) {
     .container-trackdetails {
-        display: flex;
         flex-direction: row;
+    }
+
+    #AlbumArt {
+        min-width: 0;
+        flex: 1 1 0;
+    }
+
+    #TrackDetails {
+        min-width: 0;
+        flex: 5 1 0;
     }
 }
 
 @media (max-width : 850px) {
     .container-trackdetails {
-        display: flex;
         flex-direction: column;
-        align-items: center;
+    }
+
+    #AlbumArt {
+        width: 300px;
+        height: 300px;
+        max-width: 300px;
+        max-height: 300px;
     }
 }

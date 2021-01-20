@@ -1,0 +1,12 @@
+.track-detail-wrapper {
+    max-width: fit-content;
+    background-color: black;
+}
+
+.track-detail-content {
+    margin: 0;
+    color: white;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}

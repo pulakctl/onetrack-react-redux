@@ -7,8 +7,13 @@ type Props = {
 
 export const AlbumArtDisplay: FC<Props> = (props: Props) => {
     return (
-        <div>
-            <img id={props.id} src={props.src} alt="Album art" />
+        <div id={props.id}>
+            <img style={{
+                width: "100%",
+                height: "100%",
+                maxWidth: "100%",
+                maxHeight: "auto"
+            }} src={props.src} alt="Album art" />
         </div>
     )
 }

@@ -29,7 +29,7 @@ function App() {
     <div className="App">
       <div className="container-trackdetails">
         <AlbumArtDisplay id="AlbumArt" src={albumArtUrl} />
-        <TrackDetailsDisplay id="TrackName" name={currentTrack} />
+        <TrackDetailsDisplay id="TrackDetails" name={currentTrack} />
       </div>
       <div className="container-controls">
           <ToggleButton

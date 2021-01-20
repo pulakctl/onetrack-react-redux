@@ -11,8 +11,8 @@ class Background extends Component<Props> {
     width = 0
     height = 0
     deltaLightness = 20
-    nRows = 20
-    nColumns = 20
+    cellWidth = 70
+    cellHeight = 35
 
     updateDimensions = () => {
         this.width = window.innerWidth
@@ -39,20 +39,22 @@ class Background extends Component<Props> {
 
     renderBackground(ctx: CanvasRenderingContext2D) {
         ctx.clearRect(0, 0, this.width, this.height)
-        const w = this.width / this.nColumns
-        const h = this.height / this.nRows
+        
+        const nColumns = Math.ceil(this.width / this.cellWidth)
+        const nRows = Math.ceil(this.height / this.cellHeight)
+        
         let i = 0, j = 0, r = 0
         let p1 = [0, 0], p2 = [0, 0], p3 = [0, 0], p4 = [0, 0], cl = [0, 0, 0]
-        for (i = 0; i < this.nRows - 0; i++ ) {
-            for (j = 0; j < this.nRows - 0; j++) {
-                p1[0] = i * w
-                p1[1] = j * h
+        for (i = 0; i < nColumns; i++ ) {
+            for (j = 0; j < nRows; j++) {
+                p1[0] = i * this.cellWidth
+                p1[1] = j * this.cellHeight
 
-                p2[0] = (i + 1) * w
-                p2[1] = j * h
+                p2[0] = (i + 1) * this.cellWidth
+                p2[1] = j * this.cellHeight
 
-                p3[0] = i * w
-                p3[1] = (j + 1) * h
+                p3[0] = i * this.cellWidth
+                p3[1] = (j + 1) * this.cellHeight
 
                 r = Math.floor(Math.random() * 2)
                 cl = this.shiftColor(this.props.colors[r])
@@ -64,8 +66,8 @@ class Background extends Component<Props> {
                 ctx.lineTo(p3[0], p3[1])
                 ctx.fill()
                 
-                p4[0] = (i + 1) * w
-                p4[1] = (j + 1) * h
+                p4[0] = (i + 1) * this.cellWidth
+                p4[1] = (j + 1) * this.cellHeight
                 r = Math.floor(Math.random() * 2)
                 cl = this.shiftColor(this.props.colors[r])
                 ctx.fillStyle = `rgb(${cl[0]}, ${cl[1]}, ${cl[2]})`

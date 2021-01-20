@@ -15,8 +15,8 @@ function App() {
   const albumArtUrl: string = useSelector(
     (state: PlayerState) => state.albumArtUrl
   )
-  const currentFileUrl: string = useSelector(
-    (state: PlayerState) => state.currentFileUrl
+  const ready: boolean = useSelector(
+    (state: PlayerState) => state.ready
   )
   const playing: boolean = useSelector(
     (state: PlayerState) => state.playing
@@ -36,7 +36,7 @@ function App() {
           <div className="container-trackbuttons">
             <ToggleButton
               className="ActionButton"
-              file={currentFileUrl}
+              enabled={ready}
               playing={playing}
               playimg={Assets.ICON_PLAY}
               pauseimg={Assets.ICON_PAUSE}

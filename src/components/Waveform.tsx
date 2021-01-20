@@ -1,6 +1,7 @@
 import { Component, Dispatch } from 'react'
 import { connect } from 'react-redux'
 import WaveSurfer from 'wavesurfer.js'
+import { setReady } from '../store/actionCreators'
 
 type Props = {
     id: string,
@@ -22,6 +23,7 @@ class Waveform extends Component<Props> {
     }
 
     componentDidUpdate() {
+        setReady(false)
         this.waveform?.destroy()
         this.createWaveform()
         this.waveform?.load(this.props.fileUrl)
@@ -54,6 +56,7 @@ class Waveform extends Component<Props> {
     }
 
     onReady() {
+        this.props.dispatch(setReady(true))
         this.playIfEnabled()
     }
 

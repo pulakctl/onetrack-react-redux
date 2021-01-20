@@ -5,7 +5,7 @@ type Props = {
     name: string
 }
 
-export const TrackNameDisplay: FC<Props> = (props: Props) => {
+export const TrackDetailsDisplay: FC<Props> = (props: Props) => {
     let display = 'N/A'
 
     if (props.name.length > 0) {

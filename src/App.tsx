@@ -6,7 +6,7 @@ import Waveform from './components/Waveform'
 import { ToggleButton } from './components/ToggleButton'
 import OpenButton from './components/OpenButton'
 import { AlbumArtDisplay } from './components/AlbumArtDisplay'
-import { TrackNameDisplay } from './components/TrackNameDisplay'
+import { TrackDetailsDisplay } from './components/TrackDetailsDisplay'
 import Background from './components/Background';
 
 import * as Assets from './Assets'
@@ -29,7 +29,7 @@ function App() {
     <div className="App">
       <div className="container-trackdetails">
         <AlbumArtDisplay id="AlbumArt" src={albumArtUrl} />
-        <TrackNameDisplay id="TrackName" name={currentTrack} />
+        <TrackDetailsDisplay id="TrackName" name={currentTrack} />
       </div>
       <div className="container-controls">
           <ToggleButton

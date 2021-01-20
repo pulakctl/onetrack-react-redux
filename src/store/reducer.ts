@@ -5,7 +5,7 @@ const initialState: PlayerState = {
     currentFileUrl: '',
     title: '',
     albumArtUrl: Assets.ICON_BLANK_ALBUM,
-    playing: true,
+    playing: false,
     bgColors: [
         [70, 70, 70],
         [100, 100, 100]

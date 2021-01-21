@@ -4,8 +4,9 @@ table {
 }
 
 td:first-child {
-    background-color: white;
-    color: black;
+    background-color: rgba(255, 255, 255, 0.7);
+    color: rgba(0, 0, 0, 1);
+    backdrop-filter: blur(8px);
     width: 10em;
     min-width: 10em;
     padding: 8px 8px 8px 8px;
@@ -17,8 +18,9 @@ td {
     margin: 0;
     padding: 8px;
     width: fit-content;
-    background-color: black;
-    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: rgba(255, 255, 255, 1);
+    backdrop-filter: blur(8px);
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;

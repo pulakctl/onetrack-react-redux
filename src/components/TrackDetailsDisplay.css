@@ -6,7 +6,8 @@ table {
 td:first-child {
     background-color: white;
     color: black;
-    max-width: fit-content;
+    width: 10em;
+    min-width: 10em;
     padding: 8px 8px 8px 8px;
     text-transform: capitalize;
     text-align: left;
@@ -15,7 +16,7 @@ td:first-child {
 td {
     margin: 0;
     padding: 8px;
-    max-width: fit-content;
+    width: fit-content;
     background-color: black;
     color: white;
     white-space: nowrap;

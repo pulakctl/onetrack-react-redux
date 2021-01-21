@@ -1,6 +1,12 @@
 type PlayerState = {
-    title: string,
+    fileName: string,
     albumArtUrl: string,
+    metadata: {
+        title: string,
+        album: string,
+        trackArtists: string,
+        albumArtists: string,
+    },
     currentFileUrl: string,
     ready: boolean,
     playing: boolean,
@@ -9,9 +15,15 @@ type PlayerState = {
 
 type LoadAction = {
     type: string,
-    fileUrl: string,
-    title: string,
+    fileName: string,
+    metadata: {
+        title: string,
+        album: string,
+        trackArtists: string,
+        albumArtists: string,
+    },
     albumArtUrl: string
+    fileUrl: string,
 }
 
 type TogglePlaybackAction = {

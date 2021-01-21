@@ -9,7 +9,8 @@ type Props = {
         trackArtists: string,
         albumArtists: string,
     },
-    fileName: string
+    fileName: string,
+    colors: number[][]
 }
 
 const TrackDetailsDisplay = (props: Props) => {
@@ -31,10 +32,19 @@ const TrackDetailsDisplay = (props: Props) => {
     if (props.metadata.albumArtists !== '') {
         albumArtists = props.metadata.albumArtists
     }
+
+    const vibrant = props.colors[0]
+    const muted = props.colors[1]
+    document.getElementById("details-table")?.style.setProperty(
+        '--color-vibrant', `${vibrant[0]}, ${vibrant[1]}, ${vibrant[2]}`
+    )
+    document.getElementById("details-table")?.style.setProperty(
+        '--color-muted', `${muted[0]}, ${muted[1]}, ${muted[2]}`
+    )
     
     return (
         <div id={props.id}>
-            <table>
+            <table id="details-table">
                 <tbody>
                     <tr>
                         <td>FILENAME</td>
@@ -65,7 +75,8 @@ const TrackDetailsDisplay = (props: Props) => {
 const mapStateToProps = (state: PlayerState) => {
     return {
         metadata: state.metadata,
-        fileName: state.fileName
+        fileName: state.fileName,
+        colors: state.bgColors
     }
 }
 

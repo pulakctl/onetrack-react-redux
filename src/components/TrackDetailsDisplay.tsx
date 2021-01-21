@@ -13,7 +13,12 @@ type Props = {
 }
 
 const TrackDetailsDisplay = (props: Props) => {
-    let title = 'N/A', trackArtists = 'N/A', album = 'N/A', albumArtists = 'N/A'
+    let title = 'N/A', trackArtists = 'N/A', album = 'N/A', albumArtists = 'N/A',
+        fileName = 'N/A'
+
+    if (props.fileName !== '') {
+        fileName = props.fileName
+    }
     if (props.metadata.title !== '') {
         title = props.metadata.title
     }
@@ -31,14 +36,14 @@ const TrackDetailsDisplay = (props: Props) => {
         <div id={props.id}>
             <div className="track-detail">
                 <div className="track-detail-label">FILENAME</div>
-                <p className="track-detail-content">{props.fileName}</p>
+                <p className="track-detail-content">{fileName}</p>
             </div>
             <div className="track-detail">
                 <div className="track-detail-label">TITLE</div>
                 <p className="track-detail-content">{title}</p>
             </div>
             <div className="track-detail">
-                <div className="track-detail-label">BY</div>
+                <div className="track-detail-label">TITLE BY</div>
                 <p className="track-detail-content">{trackArtists}</p>
             </div>
             <div className="track-detail">
@@ -46,7 +51,7 @@ const TrackDetailsDisplay = (props: Props) => {
                 <p className="track-detail-content">{album}</p>
             </div>
             <div className="track-detail">
-                <div className="track-detail-label">BY</div>
+                <div className="track-detail-label">ALBUM BY</div>
                 <p className="track-detail-content">{albumArtists}</p>
             </div>
         </div>

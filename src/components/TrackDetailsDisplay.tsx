@@ -35,26 +35,28 @@ const TrackDetailsDisplay = (props: Props) => {
     return (
         <div id={props.id}>
             <table>
-                <tr>
-                    <td>FILENAME</td>
-                    <td>{fileName}</td>
-                </tr>
-                <tr>
-                    <td>TITLE</td>
-                    <td>{title}</td>
-                </tr>
-                <tr>
-                    <td>TRACK BY</td>
-                    <td>{trackArtists}</td>
-                </tr>
-                <tr>
-                    <td>ALBUM</td>
-                    <td>{album}</td>
-                </tr>
-                <tr>
-                    <td>ALBUM BY</td>
-                    <td>{albumArtists}</td>
-                </tr>
+                <tbody>
+                    <tr>
+                        <td>FILENAME</td>
+                        <td>{fileName}</td>
+                    </tr>
+                    <tr>
+                        <td>TITLE</td>
+                        <td>{title}</td>
+                    </tr>
+                    <tr>
+                        <td>TRACK BY</td>
+                        <td>{trackArtists}</td>
+                    </tr>
+                    <tr>
+                        <td>ALBUM</td>
+                        <td>{album}</td>
+                    </tr>
+                    <tr>
+                        <td>ALBUM BY</td>
+                        <td>{albumArtists}</td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     )

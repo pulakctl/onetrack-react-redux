@@ -44,7 +44,7 @@ const TrackDetailsDisplay = (props: Props) => {
                     <td>{title}</td>
                 </tr>
                 <tr>
-                    <td>TITLE BY</td>
+                    <td>TRACK BY</td>
                     <td>{trackArtists}</td>
                 </tr>
                 <tr>

@@ -61,31 +61,33 @@ body {
 
 /* responsive layout */
 
-@media (min-width : 850px) {
+@media (min-width : 550px) {
     .container-trackdetails {
         flex-direction: row;
     }
 
     #AlbumArt {
-        min-width: 0;
-        flex: 1 1 0;
+        width: 230px;
+        height: 230px;
+        max-width: 230px;
+        max-height: 230px;
     }
 
     #TrackDetails {
         min-width: 0;
-        flex: 5 1 0;
+        flex: 1 1 0;
     }
 }
 
-@media (max-width : 850px) {
+@media (max-width : 550px) {
     .container-trackdetails {
         flex-direction: column;
     }
 
     #AlbumArt {
-        width: 300px;
-        height: 300px;
-        max-width: 300px;
-        max-height: 300px;
+        width: 230px;
+        height: 230px;
+        max-width: 230px;
+        max-height: 230px;
     }
 }

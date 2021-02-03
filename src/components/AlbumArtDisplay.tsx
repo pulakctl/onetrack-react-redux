@@ -12,7 +12,8 @@ export const AlbumArtDisplay: FC<Props> = (props: Props) => {
                 width: "100%",
                 height: "100%",
                 maxWidth: "100%",
-                maxHeight: "auto"
+                maxHeight: "auto",
+                objectFit: "contain"
             }} src={props.src} alt="Album art" />
         </div>
     )

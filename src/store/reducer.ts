@@ -2,9 +2,15 @@ import * as actionTypes from "./actionTypes"
 import * as Assets from "../Assets"
 
 const initialState: PlayerState = {
-    currentFileUrl: '',
-    title: '',
+    fileName: '',
+    metadata: {
+        title: '',
+        album: '',
+        trackArtists: '',
+        albumArtists: '',
+    },
     albumArtUrl: Assets.ICON_BLANK_ALBUM,
+    currentFileUrl: '',
     ready: false,
     playing: false,
     bgColors: [
@@ -34,7 +40,13 @@ const reducer = (
         return {
             ...state,
             currentFileUrl: action.fileUrl,
-            title: action.title,
+            fileName: action.fileName,
+            metadata: {
+                title: action.metadata.title,
+                album: action.metadata.album,
+                albumArtists: action.metadata.albumArtists,
+                trackArtists: action.metadata.trackArtists,
+            },
             albumArtUrl: action.albumArtUrl,
         }
     }

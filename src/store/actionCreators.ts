@@ -1,10 +1,20 @@
 import * as actionTypes from "./actionTypes"
 
-export function loadFile(fileUrl: string, title: string, albumArtUrl: string) {
+export function loadFile(
+    fileUrl: string, fileName: string,
+    title: string, album: string, albumArtists: string, trackArtists: string,
+    albumArtUrl: string
+) {
     let action: LoadAction = {
         type: actionTypes.LOAD_FILE,
         fileUrl: fileUrl,
-        title: title,
+        fileName: fileName,
+        metadata: {
+            title: title,
+            album: album,
+            albumArtists: albumArtists,
+            trackArtists: trackArtists,
+        },
         albumArtUrl: albumArtUrl
     }
     return (dispatch: DispatchType) => {

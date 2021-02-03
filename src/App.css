@@ -14,9 +14,20 @@ body {
 }
 
 #TrackDetails {
-    align-self: flex-start;
+    align-self: stretch;
     box-sizing: content-box;
     max-width: 100%;
+    min-width: 0;
+    flex: 1 1 0;
+    overflow-x: hidden;
+    height: 230px
+}
+
+#AlbumArt {
+    width: 230px;
+    height: 230px;
+    max-width: 230px;
+    max-height: 230px;
 }
 
 .container-trackdetails {
@@ -64,30 +75,13 @@ body {
 @media (min-width : 550px) {
     .container-trackdetails {
         flex-direction: row;
-    }
-
-    #AlbumArt {
-        width: 230px;
-        height: 230px;
-        max-width: 230px;
-        max-height: 230px;
-    }
-
-    #TrackDetails {
-        min-width: 0;
-        flex: 1 1 0;
+        column-gap: 0.3in;
     }
 }
 
 @media (max-width : 550px) {
     .container-trackdetails {
         flex-direction: column;
-    }
-
-    #AlbumArt {
-        width: 230px;
-        height: 230px;
-        max-width: 230px;
-        max-height: 230px;
+        row-gap: 0.3in;
     }
 }

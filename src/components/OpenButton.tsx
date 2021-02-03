@@ -108,15 +108,20 @@ class OpenButton extends Component<Props, State>{
         this.dropArtUrl()
 
         const file = files[0]
+        const fileName = file.name
         const fileUrl = this.createFileUrl(file)
         mm.parseBlob(file).then((metadata) => {
-            const title = (metadata.common.title) ? metadata.common.title : file.name
+            const tags = metadata.common
+            const title = tags.title ? tags.title : ''
+            const album = tags.album ? tags.album : ''
+            const albumArtists = tags.albumartist ? tags.albumartist : ''
+            const trackArtists = tags.artist ? tags.artist : ''
             
             let artUrl = Assets.ICON_BLANK_ALBUM
-            if (metadata.common.picture) {
+            if (tags.picture) {
                 artUrl = this.createArtUrl(
-                    [metadata.common.picture[0].data.buffer],
-                    metadata.common.picture[0].format
+                    [tags.picture[0].data.buffer],
+                    tags.picture[0].format
                 )
 
                 Vibrant.from(artUrl).getPalette(
@@ -153,7 +158,13 @@ class OpenButton extends Component<Props, State>{
                 this.props.dispatch(updateBgColors([]))
             }
 
-            this.props.dispatch(loadFile(fileUrl, title, artUrl))
+            this.props.dispatch(
+                loadFile(
+                    fileUrl, fileName,
+                    title, album, albumArtists, trackArtists,
+                    artUrl
+                )
+            )
         })
     }
     

@@ -1,24 +1,48 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { useSelector } from 'react-redux'
+
+import Waveform from './components/Waveform'
+import { ToggleButton } from './components/ToggleButton'
+import OpenButton from './components/OpenButton'
+import { AlbumArtDisplay } from './components/AlbumArtDisplay'
+import TrackDetailsDisplay from './components/TrackDetailsDisplay'
+import Background from './components/Background';
+
+import * as Assets from './Assets'
 
 function App() {
+  const albumArtUrl: string = useSelector(
+    (state: PlayerState) => state.albumArtUrl
+  )
+  const ready: boolean = useSelector(
+    (state: PlayerState) => state.ready
+  )
+  const playing: boolean = useSelector(
+    (state: PlayerState) => state.playing
+  )
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container-trackdetails">
+        <AlbumArtDisplay id="AlbumArt" src={albumArtUrl} />
+        <TrackDetailsDisplay id="TrackDetails" />
+      </div>
+      <div className="container-controls">
+          <ToggleButton
+            className="ActionButton"
+            enabled={ready}
+            playing={playing}
+            playimg={Assets.ICON_PLAY}
+            pauseimg={Assets.ICON_PAUSE}
+          />
+          <OpenButton
+            className="ActionButton"
+            openimg={Assets.ICON_ADD}
+            />
+        </div>
+      <Waveform id="waveform" />
+      <Background id="background" />
     </div>
   );
 }

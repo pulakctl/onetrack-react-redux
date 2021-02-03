@@ -1,38 +1,87 @@
+html, body, #root {
+    max-width: 100%;
+}
+
+body {
+    padding: 0.3in;
+}
+
 .App {
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    row-gap: 0.3in;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#TrackDetails {
+    align-self: stretch;
+    box-sizing: content-box;
+    max-width: 100%;
+    min-width: 0;
+    flex: 1 1 0;
+    overflow-x: hidden;
+    height: 230px
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#AlbumArt {
+    width: 230px;
+    height: 230px;
+    max-width: 230px;
+    max-height: 230px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.container-trackdetails {
+    display: flex;
+    align-items: center;
+    flex: 1 1 0;
 }
 
-.App-link {
-  color: #61dafb;
+.container-controls {
+    display: flex;
+    flex-direction: row;
+    column-gap: 0.3in;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#Progress {
+    font-size: 2em;
+    font-family: monospace;
+    width: max-content;
+    padding: 0.1in 0.15in 0.1in 0.15in;
+    background-color: silver;
+    color: black;
+}
+
+.ActionButton {
+    padding: 0in;
+    height: 0.6in;
+    width: 0.6in;
+    border-radius: 50%;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0in 0in 0.1in 0.1in rgba(0, 0, 0, 0.25), 0in 0in 0.1in 0.05in rgba(0, 0, 0, 0.1);
+}
+.ActionButton:focus {
+    outline: none;
+    background-color: silver;
+}
+.ActionButton:active {
+    box-shadow: 0in 0in 0.15in 0.1in rgba(0, 0, 0, 0.25);
+}
+
+/* responsive layout */
+
+@media (min-width : 550px) {
+    .container-trackdetails {
+        flex-direction: row;
+        column-gap: 0.3in;
+    }
+}
+
+@media (max-width : 550px) {
+    .container-trackdetails {
+        flex-direction: column;
+        row-gap: 0.3in;
+    }
 }
